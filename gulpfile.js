@@ -22,19 +22,24 @@ function scssPackage() {
         .pipe(dest('dist/css/'));
 }
 
-// html输出
 function html() {
     return src('src/html/**/*.html')
         .pipe(dest("dist/html"));
 }
 
+function copyPlugin() {
+    return src('src/plugins/**/*')
+        .pipe(dest('dist/plugins'));
+}
+
+
 function build(cb) {
-    series(clean, parallel(scssPackage, jsPackage, html));
+    series(clean, parallel(scssPackage, jsPackage, html, copyPlugin));
     cb();
 }
 
 // 监听文件
-watch('src/**/*.*', series(clean, parallel(scssPackage, jsPackage, html)));
+watch('src/**/*.*', series(clean, parallel(scssPackage, jsPackage, html, copyPlugin)));
 
 module.exports.scssPackage = scssPackage;
 module.exports.jsPackage = jsPackage;
