@@ -1,10 +1,11 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const $ = require('gulp-load-plugins')();   // 避免命名污染
 
+
 // 清空编译文件夹
 function clean() {
     return src('dist/', {read: false})  // 不读取文件，避免文件被占用的清空下无法删除
-        .pipe($.clean());
+        .pipe($.clean({force: true}));
 }
 
 // 编译js
@@ -33,15 +34,15 @@ function copyPlugin() {
 }
 
 
-function build(cb) {
-    series(clean, parallel(scssPackage, jsPackage, html, copyPlugin));
-    cb();
+// 执行构建
+function build() {
+    return series(clean, parallel(scssPackage, jsPackage, html, copyPlugin));
 }
 
 // 监听文件
-watch('src/**/*.*', series(clean, parallel(scssPackage, jsPackage, html, copyPlugin)));
+watch('src/**/*.*', build());
 
 module.exports.scssPackage = scssPackage;
 module.exports.jsPackage = jsPackage;
 module.exports.clean = clean;
-exports.default = build;
+exports.default = build();

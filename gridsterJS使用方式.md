@@ -1,9 +1,13 @@
 # gridsterJS使用方式
 
-## 必须依赖
-1. jquery.js            - jquery
-2. jquery.gridster.js   - gridster主要脚本
-3. jquery.gridster.css  - gridster的样式文件
+##1. 引用依赖
+### 必须依赖
+1. jquery.js            
+   - 版本: jquery  1.7.1 - 3.6.0
+2. jquery.gridster.js
+    - gridster主要脚本
+3. /plugins/jquery.gridster.css
+    - gridster的样式文件
 
 
 ## 提供能力
