@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>可拖拽页面</title>
     <link rel="stylesheet" href="../css/home.css"/>
+    <link rel="stylesheet" type="text/css" href="../plugins/jquery.gridster.css">
 </head>
 <body>
 <div class='main-container'>
-    <div class='grid-container'>
+    <div class='grid-container' id="grid-container">
         <div class='card card--2x'>
             <div class='card__content big-script padding-large'>
                 <p>Travel and see the world</p>
@@ -124,4 +125,17 @@
     </div>
 </div>
 </body>
+<script src="../plugins/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../plugins/jquery.dsmorse-gridster.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var gridster;
+    $(function() {
+        gridster = $("#grid-container").gridster({
+            widget_margins: [5, 5],
+            // widget_base_dimensions: [100, 55]
+        }).data('gridster')
+        console.log('1234');
+    });
+
+</script>
 </html>

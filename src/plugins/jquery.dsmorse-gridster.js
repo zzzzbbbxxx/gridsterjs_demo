@@ -1106,12 +1106,12 @@
 
 		this.generated_stylesheets = [];
 		this.$style_tags = $([]);
-		
+
 		if (typeof (this.options.limit) === typeof (true)) {
 		    console.log('limit: bool is deprecated, consider using limit: { width: boolean, height: boolean} instead');
 		    this.options.limit = { width: this.options.limit, height: this.options.limit };
 		}
-		
+
 		this.options.auto_init && this.init();
 	}
 
@@ -2504,7 +2504,7 @@
 					'left': '',
 					'top': ''
 				});
-				
+
 		if (this.options.draggable.stop) {
 			this.options.draggable.stop.call(this, event, ui);
 		}
@@ -3339,8 +3339,8 @@
 		}
 
 		if (this.gridmap[col][row]) {
-			if(this.options.ignore_self_occupied) {		
-				return this.$player.data() !== $(this.gridmap[col][row]).data();		
+			if(this.options.ignore_self_occupied) {
+				return this.$player.data() !== $(this.gridmap[col][row]).data();
 			}
 			return true;
 		}
@@ -5063,7 +5063,7 @@
 			this.drag_api.set_limits((this.cols * this.min_widget_width) + ((this.cols + 1) * this.options.widget_margins[0]));
 		}
 	};
-	
+
 	fn.set_new_num_rows = function (rows) {
 	    var max_rows = this.options.max_rows;
 

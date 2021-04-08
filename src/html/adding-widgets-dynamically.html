@@ -5,7 +5,6 @@
     <title>Demo &raquo; Add widgets dynamically &raquo; gridster.js</title>
     <link rel="stylesheet" type="text/css" href="../plugins/demo.css">
     <link rel="stylesheet" type="text/css" href="../plugins/jquery.gridster.css">
-    <!--<script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>-->
 
 </head>
 
@@ -13,16 +12,13 @@
 
 <h1>动态添加 widgets</h1>
 
-<p>Create a grid adding widgets from an Array (not from HTML) using <code>add_widget</code> method. Widget position (col, row) not specified.</p>
+<p>使用 add_widget方法，从数组中动态的添加栅格块，栅格块所在的位置，未指定</p>
 
 <div class="gridster">
     <ul></ul>
 </div>
 
-<script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
+<script src="../plugins/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../plugins/jquery.dsmorse-gridster.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript" id="code">
@@ -31,14 +27,14 @@
     $(function () {
 
         gridster = $(".gridster > ul").gridster({
-            widget_margins: [5, 5],
-            widget_base_dimensions: [100, 55]
+            widget_margins: [5, 5], // x 方向边距 y 方向边距
+            widget_base_dimensions: [100, 100] // 宽高基数
         }).data('gridster');
 
         var widgets = [
-            ['<li>0</li>', 1, 2],
-            ['<li>1</li>', 3, 2],
-            ['<li>2</li>', 3, 2],
+            ['<li>0</li>', 1, 1],   // html, size_x, size_y, col, row, max_size, min_size, callback
+            ['<li>1</li>', 1, 1],
+            ['<li>2</li>', 2, 1],
             ['<li>3</li>', 2, 1],
             ['<li>4</li>', 4, 1],
             ['<li>5</li>', 1, 2],
@@ -52,7 +48,7 @@
         $.each(widgets, function (i, widget) {
             gridster.add_widget.apply(gridster, widget)
         });
-
+        // 在控制台 输出 gridster.add_widget('<li>12</li>',1,1)
     });
 </script>
 </body>

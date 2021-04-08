@@ -2,7 +2,7 @@
 拖拽插件应用学习
 
 ## 技术栈  
-gulp scss browser-sync
+gulp scss browser-sync gridster.js jquery
 
 ## 代码结构
 - html
