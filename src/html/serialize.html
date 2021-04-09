@@ -29,9 +29,10 @@
 
 <body>
 
-<h1>Serialize positions</h1>
+<h1>序列化方法</h1>
 
 <p>Use <code>serialize</code> method to get widget positions. It returns a Array of objects that can be used as a JSON object.</p>
+<p>使用实例对象的serialize()方法，将布局输出为JSON字符串, data-max-sizex data-max-sizeY这些默认不会输出, 构建实例时的serialize_params参数可以重新定义序列化方法</p>
 
 <div class="controls">
     <button class="js-seralize">Serialize</button>
@@ -41,7 +42,7 @@
 
 <div class="gridster">
     <ul>
-        <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">0</li>
+        <li data-row="1" data-col="1" data-sizex="2" data-sizey="2" data-max-sizex="4" data-max-sizey="4">0</li>
         <li data-row="1" data-col="3" data-sizex="1" data-sizey="2">1</li>
         <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">2</li>
         <li data-row="3" data-col="2" data-sizex="3" data-sizey="1">3</li>
@@ -76,7 +77,16 @@
             widget_margins: [5, 5],
             resize: {
                 enabled: true
+            },
+            serialize_params($w, wgd) {
+                console.log(wgd);
+                // col, row, size_x size_y max_size_x, max_size_y, el
+                let {col, row, size_x, size_y} = wgd;
+                return {
+                    col, row, size_x, size_y
+                }
             }
+            // avoid_overlapped_widgets: false
 
         }).data('gridster');
 

@@ -5,12 +5,13 @@
 gulp scss browser-sync gridster.js jquery
 
 ## 代码结构
-- html
+- html  
+静态页面地址  
 - scss
 - js
 
-## 运行
-gulp
+## 实时编译运行
+gulp server
 
 ## 初始化方式
 
