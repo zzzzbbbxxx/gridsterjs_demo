@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <title>Demo &raquo; sticky position widgets &raquo; gridster.js</title>
+    <link rel="stylesheet" type="text/css" href="../plugins/demo.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/jquery.gridster.css">
+    <script src="../plugins/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../plugins/jquery.dsmorse-gridster.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+
+<h1>Sticky position widgets</h1>
+
+<p>Widgets can be moved to an exact postion on the grid and the grid will not attempt to collapse it down to a smaller size.  Also widgets will not move out of the way automatically, but will move only on mouse up</p>
+<p>默认情况下，栅格块的移动会自动对位置进行调整与分配位置，分配规则是使整个容器的大小更加的精简</p>
+<p>基于设置，栅格块可以移动到任意容器内任意位置，同时其他的栅格块不会自动的调整移动他们的位置</p>
+<p>当前布局模拟的华为云控制台的默认栅格化布局</p>
+
+<div class="gridster">
+    <ul class="task-card-list">
+        <li data-row="1" data-col="1" data-sizex="9" data-sizey="5" class="task-card">关注资源</li>
+        <li data-row="1" data-col="10" data-sizex="3" data-sizey="3">费用信息</li>
+        <li data-row="4" data-col="10" data-sizex="3" data-sizey="2">广告banner</li>
+
+        <li data-row="6" data-col="1" data-sizex="9" data-sizey="3">开发者工具-API搜索</li>
+        <li data-row="6" data-col="10" data-sizex="3" data-sizey="3">公告</li>
+
+        <li data-row="9" data-col="1" data-sizex="3" data-sizey="4">云监控</li>
+        <li data-row="9" data-col="4" data-sizex="3" data-sizey="4">ECS资源监控</li>
+        <li data-row="9" data-col="7" data-sizex="3" data-sizey="4">安全概览</li>
+        <li data-row="9" data-col="10" data-sizex="3" data-sizey="4">新手入门</li>
+
+        <li data-row="13" data-col="1" data-sizex="9" data-sizey="3">严选推荐</li>
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+    var gridster;
+
+        gridster = $(".gridster ul").gridster({
+            widget_base_dimensions: [180, 50],
+            widget_margins: [5, 5],
+            shift_widgets_up: false,
+            shift_larger_widgets_down: false,
+            avoid_overlapped_widgets: true,
+            collision: {
+                wait_for_mouseup: false
+            },
+            resize: {
+                enabled: true
+            }
+
+        }).data('gridster');
+
+</script>
+</body>
+</html>

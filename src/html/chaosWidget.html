@@ -65,7 +65,7 @@
 
         gridster = $(".gridster ul").gridster({
             widget_base_dimensions: [100, 100],
-            avoid_overlapped_widgets: true, //  default: true
+            avoid_overlapped_widgets: false, //  default: true   设置为true的时候，不允许重叠
             widget_margins: [5, 5],
             helper: 'clone',
             resize: {
